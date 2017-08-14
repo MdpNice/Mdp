@@ -1,0 +1,21 @@
+{% extends '../base.html' %}
+
+{% block content %}
+  {% for place in places %}
+
+        <script language='javascript'>
+            $(document).ready(function(){
+                showModal();
+                $('.modal-title').text('Places List');
+            });
+        </script>
+
+        <div class="post">
+          <a href="{% url 'place_detail' pk=place.pk %}">{{ place.title }}</a>
+          <div class="date">
+              {{ place.lat }} - {{ place.lng }}
+          </div>
+          <p>{% if place.comment %} {{ place.comment|linebreaksbr }} {% endif %}</p>
+      </div>
+  {% endfor %}
+{% endblock content %}

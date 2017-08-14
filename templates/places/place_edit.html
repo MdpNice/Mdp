@@ -1,0 +1,17 @@
+{% extends '../base.html' %}
+
+{% block content %}
+
+    <script language='javascript'>
+        $(document).ready(function(){
+            showModal();
+            $('.modal-title').text('Place Edit');
+        });
+    </script>
+
+    <h1>Edit place</h1>
+    <form method="POST" class="place-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+{% endblock %}

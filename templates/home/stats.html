@@ -1,0 +1,29 @@
+
+{% extends '../base.html' %}
+
+{% block content %}
+    <script language='javascript'>
+        $(document).ready(function(){
+            showModal();
+            $('.modal-title').text('Stats');
+        });
+    </script>
+
+    <table class="ui celled table">
+        <thead>
+        <tr>
+            <th>
+                {{ _('In Database:') }}
+            </th>
+            <th>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr> <td> Number of user: </td> <td> {{usercount}} </td> </tr>
+            <tr> <td> Number of partner: </td> <td> {{partnercount}} </td> </tr>
+            <tr> <td> Number of place: </td> <td> {{placecount}} </td> </tr>
+        </tbody>
+      </table>
+
+{% endblock content %}

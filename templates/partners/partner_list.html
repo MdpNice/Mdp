@@ -1,0 +1,23 @@
+
+{% extends '../base.html' %}
+
+{% block content %}
+    <script language='javascript'>
+        $(document).ready(function(){
+            showModal();
+            $('.modal-title').text('Partner List');
+        });
+    </script>
+    <a href="{% url 'partner_add' %}" class="top-menu"><span class="glyphicon glyphicon-plus">Add</span></a>
+
+
+    {% for partner in partners %}
+        <div class="post">
+            <a href="{% url 'partner_detail' pk=partner.pk %}">{{ forloop.counter }}. {{ partner.firstname }} {{ partner.lastname }}</a>
+            <div class="date">
+                {{count}}. {{ partner.birthday | date:"d m Y" }}
+            </div>
+            <p>{% if place.comment %} {{ partner.comment|linebreaksbr }} {% endif %}</p>
+        </div>
+    {% endfor %}
+{% endblock content %}

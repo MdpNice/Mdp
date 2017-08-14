@@ -1,0 +1,28 @@
+{% extends '../base.html' %}
+
+{% block content %}
+
+    <script language='javascript'>
+        $(document).ready(function(){
+            showModal();
+            $('.modal-title').text('Place Detail');
+        });
+    </script>
+
+    <div class="post">
+        <a class="btn btn-default" href="{% url 'place_edit' pk=place.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        <h1>{{ place.title }}</h1>
+        <p>{{ place.lat }}</p>
+        <p>{{ place.lng }}</p>
+        <p>{{ place.comment|linebreaksbr }}</p>
+    </div>
+
+    <hr>
+    {% for personbyplace in personbyplaces %}
+
+         <li>{{personbyplace.partner.firstname}} {{personbyplace.partner.lastname}}</li>
+
+    {% endfor %}
+    <hr>
+
+{% endblock %}
